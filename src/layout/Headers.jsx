@@ -11,17 +11,16 @@ import { FaLinkedinIn } from 'react-icons/fa'
 const Headers = () => {
     return (
         <header className=''>
-            <div className='flex flex-wrap items-center justify-between gap-8 border b-2 m-6 p-6'>
+            <div className='flex flex-wrap ml-12 mr-12 mx-auto items-center justify-between gap-8  m-6 p-6'>
 
 
-                <div className='flex justify-center items-center ml-24 min-w-min'>
-                    <img src={RastMobileLogo} alt='' className='object-fit border b-2 min-w-min 
-                    flex-wrap' />
+                <div className='flex justify-center items-center m-4 min-w-min'>
+                    <img src={RastMobileLogo} alt='' className='object-fit min-w-min flex-wrap' />
                 </div>
 
-                <div className='flex justify-center items-center border b-5'>
-                    <nav className='flex text-md gap-16 border-2'>
-                        <div className='flex items-center justify-center gap-40 transition-all'>
+                <div className='flex justify-center items-center'>
+                    <nav className='flex text-md gap-16'>
+                        <div className='navbar flex items-center  justify-center gap-28 transition-all'>
                             <ul>
                                 <a href="/AboutPage">Hakkımızda</a>
                             </ul>
@@ -43,33 +42,54 @@ const Headers = () => {
                 <div className='flex gap-4 border b-5 items-center relative min-w-fit'>
 
                     <div className='flex object-contain'>
-                        <button type="submit" name="Submit" className='bg-[#744BFC] rounded-md w-7 h-7'>
-                        <CiYoutube  
-                        className='w-5 h-5 mx-auto rounded-md bg-white'/>
-   
-    
+                        <button 
+                        type="button"
+                         name="Submit" 
+                         className='bg-[#744BFC] rounded-md w-6 h-6'
+                         onClick={(e) => {
+                            e.preventDefault();
+                            window.location.href ='https://www.youtube.com/';
+                        }}>
+                            <CiYoutube
+                                className='w-4 h-4 mx-auto rounded-md bg-white' />
+
+
                         </button>
 
                     </div>
 
                     <div className='flex object-contain'>
 
-                    <button type="submit" name="Submit" className='bg-[#744BFC] rounded-md w-7 h-7'>
-                        <AiOutlineInstagram  
-                        className='w-5 h-5 mx-auto rounded-md bg-white'/>
+                        <button
+                         type="button" 
+                         name="Submit" 
+                         className='bg-[#744BFC] rounded-md w-6 h-6'
+                         onClick={(e) => {
+                            e.preventDefault();
+                            window.location.href ='https://www.instagram.com/mobilerast/';
+                        }}>
+                            
+                            <AiOutlineInstagram
+                                className='w-4 h-4 mx-auto rounded-md bg-white' />
                         </button>
                     </div>
 
                     <div className='flex object-contain'>
-                        <img src={VectorBe} alt='' className='rounded-md w-7 h-7'/>
+                        <img src={VectorBe} alt='' className='rounded-md w-6 h-6' />
 
                     </div>
 
                     <div className='flex object-contain'>
-                    <button type="submit" name="Submit" className='bg-[#744BFC] rounded-md w-7 h-7'>
-                        <FaLinkedinIn  
-                        className='w-5 h-5 mx-auto rounded-md text-white'/>
-
+                        <button
+                            type="button"
+                            name="Submit"
+                            className='bg-[#744BFC] rounded-md w-6 h-6'
+                            onClick={(e) => {
+                                e.preventDefault();
+                                window.location.href ='https://www.linkedin.com/company/rastmobile/';
+                            }}>
+                            <FaLinkedinIn
+                                className='w-4 h-4 mx-auto rounded-md text-white' />
                         </button>
                     </div>
 

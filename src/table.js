@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FaSortDown, FaSortUp, FaSort } from "react-icons/fa"
 import { useMediaQuery } from '@react-hook/media-query'
 import TableMobile from "./table-mobile";
 import union from './assets/images/Union.png'
+import { AiOutlineSearch } from "react-icons/ai"
+import Modals from "./components/Modals";
 
 export default function Table({ head, body, searchable }) {
 
-	const getData = () => {
-		console.log("object")
+	const [showMyModal, setShowMyModal] = useState(false)
+
+	const handleOnClose = () => {
+		setShowMyModal(false)
 	}
 
 	const isMobile =
 		useMediaQuery('(max-width: 600px)')
-
 	const [sorting, setSorting] = useState(false)
 	const [search, setSearch] = useState('')
 	const filteredData = body && body.filter(
@@ -35,7 +38,7 @@ export default function Table({ head, body, searchable }) {
 	}
 
 	return (
-		<>
+		<div className="font-serif m-4 p-4">
 			{searchable && (
 				<div className="mb-4 flex justify-between gap-x-2">
 
@@ -47,36 +50,35 @@ export default function Table({ head, body, searchable }) {
 							placeholder="Search objects.."
 							className="font-light text-gray-700  text-[14px] flex justify-center m-4 w-[380px] h-[42px] rounded-[39px] items-center outline-none focus:border-black border  text-sm px-4 border-gray-300"
 						/>
-						{sorting && (
-							<button
-								onClick={() => setSorting(false)}
-								className="h-10 rounded whitespace-nowrap border border-red-500 text-red-500 text-sm px-4">
-								Sıralamayı İptal Et
-							</button>
-						)}
-						<button className="rounded-full bg-purple-500">
-							<svg width="20" height="20" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<path d="M8.6 16.2C12.7974 16.2 16.2 12.7974 16.2 8.6C16.2 4.40263 12.7974 1 8.6 1C4.40263 1 1 4.40263 1 8.6C1 12.7974 4.40263 16.2 8.6 16.2Z" stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-							</svg>
-
+						<button className='flex relative -left-16 w-[49px] h-[42px] bg-[#744BFC] rounded-tr-2xl	rounded-br-2xl justify-center items-center'>
+							<AiOutlineSearch className="w-5 h-5 text-white" />
 						</button>
 
-						
 
-						<div className='flex w-[49px] h-[42px] bg-white rounded-[29px] justify-center items-center'>
+
+						<button className='flex relative -left-14 w-[49px] h-[42px] bg-white rounded-[29px] justify-center items-center'>
 							<img src={union} alt='' />
 
-
+						</button>
+						<div>
+							{sorting && (
+								<button
+									onClick={() => setSorting(false)}
+									className="h-10 reative -left-4 rounded whitespace-nowrap border border-red-500 text-red-500 text-sm px-4">
+									Sıralamayı İptal Et
+								</button>
+							)}
 						</div>
 					</div>
 
 					<div className='flex items-center justify-center'>
 						<button
 							className='w-[175px] h-[42px] m-4 text-white text-md bg-regal-blue items-center
-                cursor-pointer rounded-[39px] font-medium transition-all hover:text-lg hover:bg-hover-blue'
-							onClick={getData}
-						>
+                			cursor-pointer rounded-[39px] font-medium transition-all hover:text-lg
+						   hover:bg-hover-blue hover:scale-95'
+							onClick={() => setShowMyModal(true)}>
 							+   Yeni bir şey ekle
+
 						</button>
 
 					</div>
@@ -94,7 +96,7 @@ export default function Table({ head, body, searchable }) {
 									<th
 										className="font-medium text-sm p-4 border-b-2"
 										key={key}>
-										<div className="inline-flex items-center gap-x-2 text-black">
+										<div className="desc">
 											{h.name}
 											{h.sortable && (
 												<button onClick={() => {
@@ -110,10 +112,13 @@ export default function Table({ head, body, searchable }) {
 														})
 													}
 												}}>
+													<div className="">
 													{sorting?.key === key && (
 														sorting.orderBy === 'asc' ? <FaSortDown size={14} /> : <FaSortUp size={14} />
 													)}
 													{sorting?.key !== key && <FaSort size={14} />}
+													</div>
+													
 												</button>
 											)}
 										</div>
@@ -124,10 +129,10 @@ export default function Table({ head, body, searchable }) {
 						</thead>
 						<tbody>
 							{filteredData.map((items, key) => (
-								<tr className="group" key={key}>
+								<tr className="group rounded-md" key={key}>
 									{items.map((item, key) => (
 										<td
-											className="m-4 p-4 text-sm group-hover:bg-blue-50 group-hover:text-blue-600"
+											className="list m-4 p-4 text-sm group-hover:bg-blue-100 group-hover:text-blue-600 "
 											key={key}>
 											{Array.isArray(item) ? (
 												<div className="flex gap-x-2.5">
@@ -140,9 +145,10 @@ export default function Table({ head, body, searchable }) {
 							))}
 						</tbody>
 					</table>
-
+					<Modals onClose={handleOnClose} visible={showMyModal} />
+									
 				</div>
 			)}
-		</>
+		</div>
 	)
 }

@@ -1,42 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
   margin: 0;
-  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-.container {
+.main {
   background: linear-gradient(180deg, #EFF2FF -30.56%, rgba(232, 236, 255, 0) 135.85%);
+background-color: #EFF2FF;
 }
 
 .top input::placeholder {
-  font-family: 'Inter';
+  font-family: "Inter";
   font-style: normal;
   font-weight: 300;
   font-size: 14px;
   line-height: 17px;
-  color: #8C8C8C;
+  color: #8c8c8c;
   padding: 1rem;
-
 }
 
-.input-group input{
+.input-group input {
   width: 20vh;
   height: 3vh;
   border-radius: 0rem;
-
 }
-.input-group placeholder{
+.input-group placeholder {
   color: red;
 }
 .input-group button {
   width: 2.5em;
   height: 2.5em;
   margin-left: 1rem;
+}
+.list {
+  background: linear-gradient(
+    180deg,
+    #eff2ff -30.56%,
+    rgba(232, 236, 255, 0) 135.85%
+  );
+}
+
+.navbar{
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 1rem;
+line-height: 21px;
+color: #000000;
+}
+.table Table head{
+  margin-left: 4rem;
+}
+.desc {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 20px;
+  color: #000000;
 }

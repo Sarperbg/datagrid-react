@@ -8,7 +8,7 @@ import Container from "./MainContainer/Container";
 
 function App() {
   return (
-    <div className="App rounded-2xl">
+    <div className="App rounded-2xl mx-auto">
    
       <Router>
         <Headers />
