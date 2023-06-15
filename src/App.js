@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NinjaPage from "./pages/NinjaPage";
 import PyramidsPage from "./pages/PyramidsPage";
 import Container from "./MainContainer/Container";
-import TableComponent from "./components/TableComponent";
 
 function App() {
   return (
@@ -20,6 +19,7 @@ function App() {
           <Route path="/NinjaPage" element={<NinjaPage />} />
           <Route path="/PyramidsPage" element={<PyramidsPage />} />
         </Routes>
+
       </Router>
     </div>
   );

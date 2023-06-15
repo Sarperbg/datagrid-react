@@ -4,6 +4,10 @@ import VectorIn from '../assets/images/VectorIn.png'
 import VectorBe from '../assets/images/VectorBe.png'
 import Rectangle1 from '../assets/images/Rectangle 1.png'
 import Rectangle2 from '../assets/images/Rectangle 2.png'
+import { CiYoutube } from 'react-icons/ci'
+import { AiOutlineInstagram } from 'react-icons/ai'
+import { FaLinkedinIn } from 'react-icons/fa'
+
 const Headers = () => {
     return (
         <header className=''>
@@ -15,9 +19,9 @@ const Headers = () => {
                     flex-wrap' />
                 </div>
 
-                <div className='flex justify-center items-center gap-16 border b-5'>
-                    <nav className=''>
-                        <div className='flex items-center justify-center gap-16 transition-all'>
+                <div className='flex justify-center items-center border b-5'>
+                    <nav className='flex text-md gap-16 border-2'>
+                        <div className='flex items-center justify-center gap-40 transition-all'>
                             <ul>
                                 <a href="/AboutPage">Hakkımızda</a>
                             </ul>
@@ -39,21 +43,34 @@ const Headers = () => {
                 <div className='flex gap-4 border b-5 items-center relative min-w-fit'>
 
                     <div className='flex object-contain'>
-                        <img src={Rectangle1} alt='' />
-                    </div>
-
-                    <div className='object-contain'>
-                        <img src={Rectangle2} alt='' />
-                    </div>
-
-                    <div className='object-contain'>
-                        <img src={VectorBe} alt='' />
+                        <button type="submit" name="Submit" className='bg-[#744BFC] rounded-md w-7 h-7'>
+                        <CiYoutube  
+                        className='w-5 h-5 mx-auto rounded-md bg-white'/>
+   
+    
+                        </button>
 
                     </div>
 
-                    <div className='object-contain'>
-                        <img src={VectorIn} alt='' />
+                    <div className='flex object-contain'>
 
+                    <button type="submit" name="Submit" className='bg-[#744BFC] rounded-md w-7 h-7'>
+                        <AiOutlineInstagram  
+                        className='w-5 h-5 mx-auto rounded-md bg-white'/>
+                        </button>
+                    </div>
+
+                    <div className='flex object-contain'>
+                        <img src={VectorBe} alt='' className='rounded-md w-7 h-7'/>
+
+                    </div>
+
+                    <div className='flex object-contain'>
+                    <button type="submit" name="Submit" className='bg-[#744BFC] rounded-md w-7 h-7'>
+                        <FaLinkedinIn  
+                        className='w-5 h-5 mx-auto rounded-md text-white'/>
+
+                        </button>
                     </div>
 
                 </div>

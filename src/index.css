@@ -4,9 +4,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+* {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -24,4 +24,19 @@ body {
   color: #8C8C8C;
   padding: 1rem;
 
+}
+
+.input-group input{
+  width: 20vh;
+  height: 3vh;
+  border-radius: 0rem;
+
+}
+.input-group placeholder{
+  color: red;
+}
+.input-group button {
+  width: 2.5em;
+  height: 2.5em;
+  margin-left: 1rem;
 }

@@ -1,8 +1,8 @@
 import React from 'react'
-import rectangle from '../assets/images/Rectangle 44.png'
 import union from '../assets/images/Union.png'
 import Vector5 from '../assets/images/Vector5.png'
 const TableHeader = () => {
+
   return (
     <div className=''>
 
@@ -40,9 +40,7 @@ const TableHeader = () => {
                             className='w-[175px] h-[42px] m-4 text-white text-md bg-regal-blue items-center
                 cursor-pointer rounded-[39px] font-medium transition-all hover:text-lg hover:bg-hover-blue'
                         >
-
                             +   Yeni bir şey ekle
-
                         </button>
 
                     </div>
