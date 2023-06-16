@@ -38,11 +38,12 @@ export default function Table({ head, body, searchable }) {
 	}
 
 	return (
-		<div className="font-serif m-4 p-4">
+		<div className="font-serif mt-4 pt-4 ml-16 max-lg:ml-0 max-md:m-0 max-md:p-0">
 			{searchable && (
-				<div className="mb-4 flex justify-between gap-x-2">
+				<div className="mb-2 flex justify-between max-lg:flex-col max-md:-left-12">
 
-					<div className="flex items-center">
+					<div className="flex items-center max-sm:p-0
+					max-sm:justify-between max-lg:justify-center">
 						<input
 							value={search}
 							onChange={e => setSearch(e.target.value)}
@@ -50,14 +51,15 @@ export default function Table({ head, body, searchable }) {
 							placeholder="Search objects.."
 							className="font-light text-gray-700  text-[14px] flex justify-center m-4 w-[380px] h-[42px] rounded-[39px] items-center outline-none focus:border-black border  text-sm px-4 border-gray-300"
 						/>
-						<button className='flex relative -left-16 w-[49px] h-[42px] bg-[#744BFC] rounded-tr-2xl	rounded-br-2xl justify-center items-center'>
+						<button className=' max-md:flex-wrap flex relative -left-16 w-[49px] h-[42px] bg-[#744BFC] rounded-tr-2xl	rounded-br-2xl justify-center items-center'>
 							<AiOutlineSearch className="w-5 h-5 text-white" />
 						</button>
 
 
 
-						<button className='flex relative -left-14 w-[49px] h-[42px] bg-white rounded-[29px] justify-center items-center'>
-							<img src={union} alt='' />
+						<button className='flex relative -left-14 w-[49px] h-[42px] bg-white rounded-[29px]
+						 justify-center items-center min-w-fit max-sm:hidden'>
+							<img src={union} alt=''/>
 
 						</button>
 						<div>
@@ -75,7 +77,7 @@ export default function Table({ head, body, searchable }) {
 						<button
 							className='w-[175px] h-[42px] m-4 text-white text-md bg-regal-blue items-center
                 			cursor-pointer rounded-[39px] font-medium transition-all hover:text-lg
-						   hover:bg-hover-blue hover:scale-95'
+						   hover:bg-hover-blue hover:scale-95  max-lg:text-sm '
 							onClick={() => setShowMyModal(true)}>
 							+   Yeni bir şey ekle
 
@@ -88,18 +90,20 @@ export default function Table({ head, body, searchable }) {
 			{isMobile &&
 				<TableMobile head={head} body={filteredData} />}
 			{!isMobile && (
-				<div className="w-full min-w-min border rounded p-4">
+				<div className="w-full min-w-min  rounded p-4 bg-white">
 					<table className="w-full h-full">
 						<thead className="w-full">
 							<tr>
 								{head.map((h, key) => (
-									<th
-										className="font-medium text-sm p-4 border-b-2"
+									<th 
+										className="font-medium text-sm p-4 bg-white "
 										key={key}>
-										<div className="desc">
+										<div className="desc tracking-widest text-left">
 											{h.name}
 											{h.sortable && (
-												<button onClick={() => {
+												<button 
+												className="ml-12"
+												onClick={() => {
 													if (sorting?.key === key) {
 														setSorting({
 															key,

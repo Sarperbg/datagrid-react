@@ -3,7 +3,9 @@ import React from "react";
 export default function Modals({ visible, onClose }) {
     if (!visible) return null;
 
-
+    const getData = () => {
+        console.log("test")
+    }
     return (
         <div className="flex flex-col fixed inset-36 mx-auto  w-[488px] h-[406px] bg-white  rounded-[13px] ">
 
@@ -28,11 +30,15 @@ export default function Modals({ visible, onClose }) {
                 />
             </div>
             <div className="flex justify-end gap-[17px] mt-10">
-                <button className="px-5 py-2 font-medium bg-[#F5F7FF] text-[#744BFC] rounded-[39px] "
+                <button 
+                className="px-5 py-2 font-medium bg-[#F5F7FF] text-[#744BFC] rounded-[39px]"
                 onClick={onClose}>
                     Vazgeç
                 </button>
-                <button className="px-5 py-2 bg-[#744BFC] text-white rounded-[34px]">
+                <button 
+                className="px-5 py-2 bg-[#744BFC] text-white rounded-[34px]"
+                onClick={getData}
+                >
                     Kaydet
                 </button>
             </div>

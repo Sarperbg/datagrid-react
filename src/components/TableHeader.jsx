@@ -8,12 +8,13 @@ const TableHeader = () => {
     <div className=''>
 
             <div className=''>
-                <div className='flex justify-between ml-20 mr-20 mt-12 border b-4'>
+                <div className='flex justify-between ml-20 mr-20 mt-12 border b-4' >
 
 
                     <div className='search-btn flex border b-5 items-center'>
                         <input
-                            className='flex justify-center m-4 w-[380px] h-[42px] rounded-[39px] items-center'
+                            className='flex justify-center m-4 w-[380px] h-[42px] rounded-[39px] items-center
+                            '
                             placeholder='Search objects...'
                             
                         />
@@ -29,7 +30,6 @@ const TableHeader = () => {
 
                     </div>
 
-
                     <div>
                         <button
                             className='w-[175px] h-[42px] m-4 text-white text-md bg-regal-blue items-center
@@ -37,16 +37,8 @@ const TableHeader = () => {
                         >
                             +   Yeni bir şey ekle
                         </button>
-
                     </div>
-
-
-
                 </div>
-
-
-
-
             </div>
 
 

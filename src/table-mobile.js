@@ -9,7 +9,7 @@ export default function TableMobile({head, body}) {
 						</div>
 					) : (
 						<div className="text-sm flex items-center gap-x-6">
-							<h6 className="min-w-[65px] text-xs font-semibold text-gray-500">{head[key].name}</h6>
+							<h6 className="min-w-[20px] text-xs font-semibold text-gray-600">{head[key].name}</h6>
 							{item}
 						</div>
 					))}

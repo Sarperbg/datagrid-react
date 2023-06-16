@@ -10,17 +10,19 @@ import { FaLinkedinIn } from 'react-icons/fa'
 
 const Headers = () => {
     return (
-        <header className=''>
-            <div className='flex flex-wrap ml-12 mr-12 mx-auto items-center justify-between gap-8  m-6 p-6'>
+        <header>
+            <div className='flex flex-wrap ml-12 mr-12 mx-auto items-center justify-between gap-8 m-6 p-6
+             '>
 
 
-                <div className='flex justify-center items-center m-4 min-w-min'>
+                <div className='flex justify-center items-center m-4 min-w-min max-lg:w-full max-md:w-full'>
                     <img src={RastMobileLogo} alt='' className='object-fit min-w-min flex-wrap' />
                 </div>
 
                 <div className='flex justify-center items-center'>
                     <nav className='flex text-md gap-16'>
-                        <div className='navbar flex items-center  justify-center gap-28 transition-all'>
+                        <div className='navbar flex items-center  justify-center gap-28 transition-all
+                        max-md:gap-8 max-md:items-center max-md:justify-between'>
                             <ul>
                                 <a href="/AboutPage">Hakkımızda</a>
                             </ul>
@@ -39,7 +41,7 @@ const Headers = () => {
                 </div>
 
 
-                <div className='flex gap-4 border b-5 items-center relative min-w-fit'>
+                <div className='flex gap-4 items-center relative min-w-fit  max-lg:w-full max-md:w-full justify-between'>
 
                     <div className='flex object-contain'>
                         <button 
