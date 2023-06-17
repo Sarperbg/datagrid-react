@@ -1,14 +1,23 @@
 import React from 'react'
 import TableComponent from '../components/TableComponent'
+import InputComponent from '../components/InputComponent'
+import ButtonComponent from '../components/ButtonComponent'
 
 const Container = () => {
     return (
-        <div className='main m-4 ml-6 mr-6 mx-auto rounded-md max-sm:m-0 max-sm:p-0'>
-       <TableComponent />
-       
-       </div>
+        <div className='main ml-8 mr-8 rounded-md max-sm:m-0 max-sm:p-0'>
+          
+            
+            <TableComponent />
+
+           
+        </div>
 
     )
 }
 
 export default Container
+
+// pedrotech
+// traversy media 
+

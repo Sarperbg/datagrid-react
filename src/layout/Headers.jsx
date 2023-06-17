@@ -11,8 +11,7 @@ import { FaLinkedinIn } from 'react-icons/fa'
 const Headers = () => {
     return (
         <header>
-            <div className='flex flex-wrap ml-12 mr-12 mx-auto items-center justify-between gap-8 m-6 p-6
-             '>
+            <div className='flex flex-wrap ml-12 mr-12 mx-auto items-center justify-between gap-8 m-6 p-6 '>
 
 
                 <div className='flex justify-center items-center m-4 min-w-min max-lg:w-full max-md:w-full'>
@@ -41,7 +40,8 @@ const Headers = () => {
                 </div>
 
 
-                <div className='flex gap-4 items-center relative min-w-fit  max-lg:w-full max-md:w-full justify-between'>
+                <div className='flex gap-4 items-center relative min-w-fit  max-lg:w-full max-md:w-full justify-between
+                 '>
 
                     <div className='flex object-contain'>
                         <button 

@@ -1,41 +1,26 @@
 import { useState } from "react";
 import { FaSortDown, FaSortUp, FaSort } from "react-icons/fa"
 import { useMediaQuery } from '@react-hook/media-query'
-import TableMobile from "./table-mobile";
-import union from './assets/images/Union.png'
+import TableMobile from "../table-mobile";
+import union from '../assets/images/Union.png'
 import { AiOutlineSearch } from "react-icons/ai"
-import Modals from "./components/Modals";
+import Modals from "../components/Modals";
 
 export default function Table({ head, body, searchable }) {
-
 	const [showMyModal, setShowMyModal] = useState(false)
 
 	const handleOnClose = () => {
 		setShowMyModal(false)
 	}
 
-	const isMobile =
-		useMediaQuery('(max-width: 600px)')
+	const isMobile = useMediaQuery('(max-width: 600px)')
+		
 	const [sorting, setSorting] = useState(false)
 	const [search, setSearch] = useState('')
-	const filteredData = body && body.filter(
-		items => items.some(
-			item => (item?.key || item?.props?.searchableText || item).toString().toLocaleLowerCase('TR').includes(search.toLocaleLowerCase('TR'))
-		)
-	).sort((a, b) => {
-		if (sorting?.orderBy === 'asc') {
-			return (a[sorting.key]?.key || a[sorting.key]?.props?.searchableText || a[sorting.key]).toString().localeCompare(b[sorting.key]?.key || b[sorting.key]?.props?.searchableText || b[sorting.key])
-		}
-		if (sorting?.orderBy === 'desc') {
-			return b[sorting.key].toString().localeCompare(a[sorting.key])
-		}
-	})
 
-	if (!body || body?.length === 0) {
-		return (
-			<div className="p-4 rounded bg-yellow-100 text-yellow-700 text-sm">Gösterilecek veri bulunmuyor.</div>
-		)
-	}
+	
+	
+	
 
 	return (
 		<div className="font-serif mt-4 pt-4 ml-16 max-lg:ml-0 max-md:m-0 max-md:p-0">
@@ -75,11 +60,11 @@ export default function Table({ head, body, searchable }) {
 
 					<div className='flex items-center justify-center'>
 						<button
-							className='w-[175px] h-[42px] m-4 text-white text-md bg-regal-blue items-center
+							className='w-[200px] h-[42px] mr-36 max-sm:mr-0 max-md:mr-0 max-lg:mr-0 text-white text-md bg-regal-blue items-center
                 			cursor-pointer rounded-[39px] font-medium transition-all hover:text-lg
 						   hover:bg-hover-blue hover:scale-95  max-lg:text-sm '
 							onClick={() => setShowMyModal(true)}>
-							+   Yeni bir şey ekle
+							+   Yeni bir hesap ekle
 
 						</button>
 
@@ -88,19 +73,19 @@ export default function Table({ head, body, searchable }) {
 
 			)}
 			{isMobile &&
-				<TableMobile head={head} body={filteredData} />}
+				<TableMobile head={head} />}
 			{!isMobile && (
 				<div className="w-full min-w-min  rounded p-4 bg-white">
 					<table className="w-full h-full">
 						<thead className="w-full">
 							<tr>
-								{head.map((h, key) => (
+								{head.map((i, key) => (
 									<th 
 										className="font-medium text-sm p-4 bg-white "
 										key={key}>
 										<div className="desc tracking-widest text-left">
-											{h.name}
-											{h.sortable && (
+											{i.name}
+											{i.sortable && (
 												<button 
 												className="ml-12"
 												onClick={() => {
@@ -132,21 +117,7 @@ export default function Table({ head, body, searchable }) {
 							</tr>
 						</thead>
 						<tbody>
-							{filteredData.map((items, key) => (
-								<tr className="group rounded-md" key={key}>
-									{items.map((item, key) => (
-										<td
-											className="list m-4 p-4 text-sm group-hover:bg-blue-100 group-hover:text-blue-600 "
-											key={key}>
-											{Array.isArray(item) ? (
-												<div className="flex gap-x-2.5">
-													{item}
-												</div>
-											) : item}
-										</td>
-									))}
-								</tr>
-							))}
+							
 						</tbody>
 					</table>
 					<Modals onClose={handleOnClose} visible={showMyModal} />
