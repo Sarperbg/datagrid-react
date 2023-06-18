@@ -1,24 +1,39 @@
 {
   "users": [{
-      "name": "instagram.com/mobilerast/",
-      "surname": "instagram",
-      "email": "We help you to finish your development project successfully."
+      "link": "instagram.com/mobilerast/",
+      "socialMedia": "instagram",
+      "desc": "We help you to finish your development project successfully."
     },
     {
-      "name": "tr.linkedin.com/company/rastmobile",
-      "surname": "linkedin",
-      "email": "Hire vetted developers from Rast Mobile to scale up your tech projects."
+      "link": "tr.linkedin.com/company/rastmobile",
+      "socialMedia": "linkedin",
+      "desc": "Hire vetted developers from Rast Mobile to scale up your tech projects."
     },
     {
-      "name": "behance.net/rastmobile",
-      "surname": "behance",
-      "email": "Software Development Agency Rast Mobile Information Technology Ltd."
+      "link": "behance.net/rastmobile",
+      "socialMedia": "behance",
+      "desc": "Software Development Agency Rast Mobile Information Technology Ltd."
     },
     {
-      "name": "twitter.com/rastmobile",
-      "surname": "twitter ",
-      "email": "Software Development Agency Rast Mobile Information Technology Ltd."
+      "link": "twitter.com/rastmobile",
+      "socialMedia": "twitter ",
+      "desc": "Software Development Agency Rast Mobile Information Technology Ltd."
+    },
+    {
+      "link": "twitter.com/sarpergulfirat",
+      "socialMedia": "instagram ",
+      "desc": "loremipsum."
+    },
+    {
+      "link": "amazon.com",
+      "socialMedia": "twitter",
+      "desc": "deneme."
+    },
+    {
+      "link": "www.apple.com",
+      "socialMedia": "facebook ",
+      "desc": "test."
     }
-    
+ 
   ]
 }

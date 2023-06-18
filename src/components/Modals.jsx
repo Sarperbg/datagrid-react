@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Modals({ visible, onClose }) {
+export default function Modals({ visible, onClose , handleSubmit}) {
     if (!visible) return null;
 
     const getData = () => {
@@ -37,7 +37,7 @@ export default function Modals({ visible, onClose }) {
                 </button>
                 <button 
                 className="px-5 py-2 bg-[#744BFC] text-white rounded-[34px]"
-                onClick={getData}
+                onClick={handleSubmit}
                 >
                     Kaydet
                 </button>

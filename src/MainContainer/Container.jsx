@@ -1,7 +1,6 @@
 import React from 'react'
 import TableComponent from '../components/TableComponent'
-import InputComponent from '../components/InputComponent'
-import ButtonComponent from '../components/ButtonComponent'
+
 
 const Container = () => {
     return (
