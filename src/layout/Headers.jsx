@@ -1,9 +1,5 @@
-import { Link, NavLink } from 'react-router-dom'
 import RastMobileLogo from '../assets/images/RastMobileLogo.png'
-import VectorIn from '../assets/images/VectorIn.png'
 import VectorBe from '../assets/images/VectorBe.png'
-import Rectangle1 from '../assets/images/Rectangle 1.png'
-import Rectangle2 from '../assets/images/Rectangle 2.png'
 import { CiYoutube } from 'react-icons/ci'
 import { AiOutlineInstagram } from 'react-icons/ai'
 import { FaLinkedinIn } from 'react-icons/fa'
@@ -11,17 +7,20 @@ import { FaLinkedinIn } from 'react-icons/fa'
 const Headers = () => {
     return (
         <header>
-            <div className='flex flex-wrap ml-12 mr-12 mx-auto items-center justify-between gap-8 m-6 p-6 '>
+            <div className='flex flex-wrap ml-12 mr-12 mx-auto items-center justify-between gap-8 m-6 p-6
+             max-xs:ml-0 max-xs:text-sm'>
 
 
                 <div className='flex justify-center items-center m-4 min-w-min max-lg:w-full max-md:w-full'>
-                    <img src={RastMobileLogo} alt='' className='object-fit min-w-min flex-wrap' />
+                    <img src={RastMobileLogo} alt='' className='object-fit min-w-min flex-wrap
+                   max-xs:justify-center max-xs:mx-auto' />
                 </div>
 
-                <div className='flex justify-center items-center'>
-                    <nav className='flex text-md gap-16'>
+                <div className='flex justify-center items-center  '>
+                    <nav className='flex text-md gap-16 '>
                         <div className='navbar flex items-center  justify-center gap-28 transition-all
-                        max-md:gap-8 max-md:items-center max-md:justify-between'>
+                        max-md:gap-8 max-md:items-center max-md:justify-between max-sm:gap-4
+                        max-xxs:text-[12px] max-xxs:text-center'>
                             <ul>
                                 <a href="/AboutPage">Hakkımızda</a>
                             </ul>

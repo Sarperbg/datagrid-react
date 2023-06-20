@@ -1,12 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { MDBTable, MDBTableHead, MDBTableBody, MDBRow, MDBCol, MDBContainer, MDBBtnGroup, MDBBtn, MDBPaginationItem, MDBPaginationLink, MDBPagination } from "mdb-react-ui-kit";
+import { MDBTable, MDBTableHead, MDBTableBody, MDBRow, MDBCol, MDBContainer, MDBBtnGroup, MDBPaginationItem, MDBPaginationLink, MDBPagination } from "mdb-react-ui-kit";
 import union from '../assets/images/Union.png'
 import { AiOutlineSearch } from "react-icons/ai"
-import { BiSortAZ } from 'react-icons/bi'
 import Modals from "../components/Modals";
+import {GiCancel} from 'react-icons/gi'
 
-const TableComponent = ({ visible, onClose, handleSubmit }) => {
+const TableComponent = ({ visible, onClose }) => {
+
+
   const [data, setData] = useState([]);
   const [value, setValue] = useState("");
   const [sortValue, setSortValue] = useState("");
@@ -15,18 +17,32 @@ const TableComponent = ({ visible, onClose, handleSubmit }) => {
   const [showMyModal, setShowMyModal] = useState(false)
   const [sortFilterValue, setSortFilterValue] = useState("");
   const [operation, setOperation] = useState("");
+  const [formData, setFormData] = useState({ link: "", name: "", desc: "" });
+
+  const url = `http://localhost:3030/users`
+
 
 
   const handleOnClose = () => {
     setShowMyModal(false)
   }
 
+  const deleteData = (index) => {
+    const updatedData = [...data];
+    updatedData.splice(index, 1);
+    setData(updatedData);
+  };
   const sortOptions = ["link", "socialMedia", "desc"];
 
   useEffect(() => {
     loadUsersData(0, 4, 0);
   }, []);
 
+  const onChange = (e) => {
+    const { value, id } = e.target
+    setFormData({ ...formData, [id]: value })
+
+  }
 
   const loadUsersData = async (
     start,
@@ -89,15 +105,15 @@ const TableComponent = ({ visible, onClose, handleSubmit }) => {
 
   console.log("data", data)
 
-  const createData = async () => {
-    return await axios
-      .post(`http://localhost:3030/users?`)
-      .then((response) => {
-        setData(response.data);
-        setValue("");
-      })
-      .catch((err) => console.log(err))
+  function handleSubmit() {
+
+    axios.post('http://localhost:3030/users', formData)
+      .then(res => {
+        alert("Data added successfully!")
+      }).catch(err => console.log(err))
+
   }
+
 
   const handleReset = () => {
     setOperation("");
@@ -118,10 +134,6 @@ const TableComponent = ({ visible, onClose, handleSubmit }) => {
     loadUsersData(0, 4, 0, "sort", value)
   };
 
-  const handleFilter = async (value) => {
-    loadUsersData(0, 4, 0, "filter", value);
-
-  };
 
 
   const renderPagination = () => {
@@ -137,6 +149,7 @@ const TableComponent = ({ visible, onClose, handleSubmit }) => {
             >
               Next
             </button>
+
           </MDBPaginationItem>
         </MDBPagination>
       );
@@ -234,12 +247,14 @@ const TableComponent = ({ visible, onClose, handleSubmit }) => {
                 <AiOutlineSearch className="min-w-min w-6 h-6 text-white relative" />
               </button>
 
-              <button className=' bg-white justify-center items-center flex w-12 h-12 rounded-2xl' onClick={() => handleReset()}>
+              <button className='bg-white justify-center items-center flex w-12 h-12 rounded-2xl
+              max-xxs:absolute max-xs:absolute max-md:absolute'
+                onClick={() => handleReset()}>
                 <img src={union} alt='' className="" />
               </button>
 
               <button className="h-10 w-32 font-bold relative ml-4 rounded whitespace-nowrap border border-red-500 text-red-500 text-md px-4
-              
+              max-xxs:hidden max-xs:hidden max-sm:hidden
               " onClick={() => handleReset()}>
                 Reset
               </button>
@@ -262,41 +277,69 @@ const TableComponent = ({ visible, onClose, handleSubmit }) => {
 
 
         <MDBRow className="w-full">
-          <MDBCol size={3} className="flex justify-start text-xl items-center">
-            <MDBTable className="w-full ml-8 p-8 ">
+          <MDBCol size={4} className="flex justify-start text-xl items-center">
+            <MDBTable className="w-full p-8 ">
               <MDBTableHead dark className="font-bold text-left items-center
-               max-md:border-4   max-lg:text-center">
-                <tr className="max-md:flex-col">
-                    <th scope="col" className="text-2xl flex items-center max-md:text-lg">Sosyal Medya Link
-                      <BiSortAZ className="items-center max-md:text-lg" />
-                    </th>
-
-                  <th scope="col" className="text-2xl items-center max-md:text-lg">Sosyal Medya Adı
+               max-md:border-4   max-lg:text-center max-md:text-center max-sm:text-center
+               max-xxs:text-center max-md:m-0 max-xxs:p-0 max-xs:p-0 max-xs:text-center">
+                <tr className="max-md:flex-col 
+                max-xs:w-full max-xs:flex-col max-xs:justify-center">
+                  <th scope="col" className="text-2xl items-center max-md:text-sm max-xxs:ml-0
+                    ">Sosyal Medya Link
                   </th>
 
-                  <th scope="col" className="text-2xl items-center max-md:text-lg">Açıklama</th>
+                  <th scope="col" className="text-2xl items-center max-md:text-sm">Sosyal Medya Adı
+                  </th>
+
+                  <th scope="col" className="text-2xl items-center max-md:text-sm">Açıklama</th>
 
                 </tr>
               </MDBTableHead>
+
               {data.length === 0 ? (
-                <MDBTableBody className="justify-center items-center align-center">
+                <MDBTableBody className="justify-center items-center align-center ">
                   <tr className="">
                     <td colSpan={8} className="text-2xl text-center mb-0 border-4 text-red-400 mt-9" >
                       No Data Found</td>
                   </tr>
+
                 </MDBTableBody>
+
               ) : (
                 data.map((item, index) => (
                   <MDBTableBody className="" key={index}>
-                    <tr className="max-md:text-sm">
-                      <td className="max-sm:w-1/2">{item.link}</td>
-                      <td className="">{item.socialMedia}</td>
-                      <td>{item.desc}</td>
+                    <tr className="max-md:text-sm  border-4 max-xxs:m-4 max-xs:m-4 max-md:m-4  
+                   ">
+                      <td className="
+                      w-1/4 border-4  max-xs:text-[12px] max-xs:relative max-xs:flex-wrap
+                      max-xxs:m-0 max-xxs:p-0 max-xxs:text-[10px] 
+                      max-xs:m-0 max-xs:p-0  max-xs:w-1/4 
+                      flex-wrap 
+                      ">{item.link}</td>
+
+                      <td className="
+                      w-1/4 border-4  max-xs:ml-8
+                      max-xxs:m-0 max-xxs:p-0 max-xxs:text-[10px] max-xxs:w-1/4 max-sm:w-1/4
+                      max-sm:text-sm max-xs:m-0 max-xs:p-0 max-xs:text-[12px] max-xs:w-1/4 
+                      
+                      ">{item.socialMedia}</td>
+                      <td className="w-2/4 border-4  max-xs:flex-wrap
+                      max-xxs:m-0 max-xxs:p-0 max-xxs:ml-4 max-xxs:text-[10px] max-sm:w-2/4 max-xxs:w-2/4
+                      max-xs:p-0 max-xs:text-[12px] max-xs:w-1/4 ">{item.desc}</td>
+                      <div className=" flex items-center my-auto">
+                       
+                          
+                          <GiCancel className="flex h-8 w-8 text-red-400 rounded-xl justify-center items-center my-auto bg-center" 
+                             onClick={(index) => deleteData(index)}/>
+                      </div>
+
 
                     </tr>
+
                   </MDBTableBody>
                 ))
               )}
+
             </MDBTable>
           </MDBCol>
 
@@ -324,7 +367,13 @@ const TableComponent = ({ visible, onClose, handleSubmit }) => {
         </MDBRow>
       )}
 
-      <Modals onClose={handleOnClose} visible={showMyModal} />
+      <Modals
+        onClose={handleOnClose}
+        visible={showMyModal}
+        data={formData}
+        onChange={onChange}
+        handleSubmit={handleSubmit}
+      />
 
     </MDBContainer>
 
